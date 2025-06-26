@@ -43,8 +43,16 @@ namespace DesafioFundamentos.Models
                 int horas = 0;
                 decimal valorTotal = 0;
 
+                while (!int.TryParse(Console.ReadLine(), out horas))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Numero de horas inválda!\n\nDigite novamente a quantidade de horas que o veículo permaneceu estacionado: ");
+                }
                 // TODO: Remover a placa digitada da lista de veículos
                 // *IMPLEMENTE AQUI*
+
+                valorTotal = precoInicial + precoPorHora * horas;
+                veiculos.Remove(placa);
 
                 Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
             }
@@ -62,6 +70,11 @@ namespace DesafioFundamentos.Models
                 Console.WriteLine("Os veículos estacionados são:");
                 // TODO: Realizar um laço de repetição, exibindo os veículos estacionados
                 // *IMPLEMENTE AQUI*
+
+                foreach (string carrosEstacionados in veiculos)
+                {
+                    Console.WriteLine(carrosEstacionados);
+                }
             }
             else
             {
